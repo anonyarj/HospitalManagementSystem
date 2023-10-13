@@ -33,7 +33,10 @@ page 60103 "Patient Card"
                 {
                     ApplicationArea = All;
 
-
+                }
+                field("E-Mail"; Rec."E-Mail")
+                {
+                    ApplicationArea = All;
                 }
 
 
@@ -61,6 +64,24 @@ page 60103 "Patient Card"
                     rec.SetRange("No.", Rec."No.");
                     Report.RunModal(60100, true, true, Rec);
 
+                end;
+            }
+            action("Send Email")
+            {
+                ApplicationArea = All;
+
+                trigger OnAction()
+                var
+                    EmailSend: Codeunit EmailSend;
+                    CustomerRec: Record Customer;
+                    CustomerID: Code[20];
+
+                begin
+                    CustomerID := Rec."No.";
+                    IF NOT CustomerRec.GET(CustomerID) THEN BEGIN
+                        ERROR('Invalid Customer ID');
+                    END;
+                    EmailSend.SendEmailWithReport(CustomerID);
                 end;
             }
         }

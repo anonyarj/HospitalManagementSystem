@@ -29,6 +29,14 @@ report 60100 "Patient Report"
                 column(Appointed_Doc; "Appointed Doc") { }
 
             }
+            // trigger OnAfterGetRecord()
+            // var
+            //     outStrem: OutStream;
+            //     myInt: Integer;
+            // begin
+            //     Report.SaveAs(Report::cs  ,ReportFormat::Pdf, outStrem);
+
+            // end;
 
 
 

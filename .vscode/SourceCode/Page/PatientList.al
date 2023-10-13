@@ -39,6 +39,10 @@ page 60102 "Patient List"
                     ApplicationArea = All;
 
                 }
+                field("E-Mail"; Rec."E-Mail")
+                {
+                    ApplicationArea = All;
+                }
 
 
             }
